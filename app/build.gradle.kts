@@ -12,10 +12,12 @@ android {
         applicationId = "com.example.experiencehaptic"
         minSdk = 26
         targetSdk = 35
+
         versionCode = 1
         versionName = "1.0"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner =
+            "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildFeatures {
@@ -51,11 +53,11 @@ dependencies {
     debugImplementation(libs.androidx.compose.ui.tooling)
 
     // Video playback
-    implementation("androidx.media3:media3-exoplayer:1.5.1")
-    implementation("androidx.media3:media3-ui:1.5.1")
+    implementation(libs.media3.exoplayer)
+    implementation(libs.media3.ui)
 
     // Audio classification
-    implementation("com.google.mediapipe:tasks-audio:0.10.26.1")
+    implementation(libs.mediapipe.tasks.audio)
 
     // Unit tests
     testImplementation(libs.junit)
@@ -63,5 +65,5 @@ dependencies {
     // Instrumented Android tests
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-    androidTestImplementation("androidx.test:runner:1.6.2")
+    androidTestImplementation(libs.androidx.test.runner)
 }
