@@ -1,0 +1,1 @@
+The YAMNet TensorFlow Lite model used by SoundClassifier is bundled as yamnet.tflite.

@@ -35,7 +35,7 @@ object SoundClassifier {
                     .build()
             )
             .setRunningMode(RunningMode.AUDIO_CLIPS)
-            .setMaxResults(5)
+            .setMaxResults(10)
             .build()
 
         val classifier = AudioClassifier.createFromOptions(context, options)
@@ -70,7 +70,9 @@ object SoundClassifier {
                                 ?: category.displayName()
                                     ?.takeIf { it.isNotBlank() }
 
-                            if (label != null && category.score() >= 0.25f) {
+                            // Keep modest-confidence candidates here; MainActivity applies
+                            // label-specific thresholds before creating haptic cues.
+                            if (label != null && category.score() >= 0.22f) {
                                 detections.add(
                                     SoundDetection(
                                         timeMs = timeMs,
